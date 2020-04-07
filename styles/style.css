@@ -1,0 +1,392 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.6rem;
+  /*26px*/
+}
+
+li,
+button,
+label,
+input,
+p {
+  font-size: 1.5rem;
+  /*20px*/
+}
+
+h2 {
+  font-size: 2.3rem;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: dodgerblue;
+}
+
+/*The NAV section with hero*/
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main-head {
+  background: #131c27;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  min-height: 10vh;
+  padding: 2rem;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  display: flex;
+  flex: 1 1 2rem;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
+
+.logo {
+  flex: 1 2 2rem;
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+}
+/* Login Form*/
+form-login {
+  width: 400px;
+  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.uid-wrp,
+.pwd-wrp {
+  width: 200px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.uid-wrp:focus,
+.pwd-wrp:focus {
+  border-color: dodgerblue;
+  box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+button {
+  width: 80px;
+  padding: 1rem 0.5rem;
+  background: dodgerblue;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+#log {
+  width: 55px;
+}
+button:hover {
+  background: #03440c;
+}
+
+/*Signup Page*/
+
+.main-wrapper {
+  min-height: 90vh;
+  background: url("../img/nature-cover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-head {
+  text-align: center;
+  padding: 4rem;
+}
+
+.form-wrapper {
+  background: rgba(19, 28, 39, 0.8);
+  padding: 20px 10px;
+  width: 65%;
+  color: white;
+  border-radius: 20px;
+}
+
+.signup-form {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  padding: 15px 15px;
+}
+
+/*Signup inputs*/
+
+.signup-input {
+  width: 200px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.signup-input:focus {
+  border-color: dodgerblue;
+  box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+.reg-inp input[type="text"],
+.reg-inp input[type="password"] {
+  padding-left: 40px;
+}
+
+.reg-inp {
+  position: relative;
+  padding: 5px;
+}
+
+.reg-inp i {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  padding: 10px 10px;
+  color: #aaa;
+  transition: -3s;
+}
+
+.reg-inp input[type="text"]:focus + i {
+  color: dodgerblue;
+}
+/* Register button */
+.reg-sub {
+  width: 200px;
+  padding: 10px 10px;
+  background: #03440c;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+.reg-sub:hover {
+  font-size: 1.6rem;
+  background: dodgerblue;
+}
+
+/*Alerts*/
+
+.alert-success {
+  padding: 10px;
+  background-color: #00cc44;
+  color: white;
+  font-weight: bolder;
+}
+
+.alert-error {
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  font-weight: bolder;
+}
+
+/*index Section*/
+
+.section-landing {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/*Card1*/
+
+.card {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 210px 80px;
+  grid-template-areas: "image" "text" "stats";
+  font-family: roboto;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9); /* change the color from Atlas */
+  transition: 0.5s ease-in;
+  cursor: pointer;
+  margin: 30px;
+}
+
+.card-image {
+  grid-area: image;
+  background: url("../img/broadwayTowerUK.png");
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;
+}
+
+.card-text {
+  grid-area: text;
+  margin: 25px;
+  text-align: center;
+}
+
+.card-text .date {
+  color: rgb(255, 7, 110);
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+
+.card-text p {
+  padding-top: 10px;
+  color: grey;
+  font-size: 15px;
+  font-weight: 300px;
+}
+
+.card-itext h2 {
+  margin: 0px;
+}
+
+.card-stats {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: rgb(255, 7, 110);
+}
+
+.card-stats .stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  color: white;
+}
+
+.card-stats .type {
+  font-size: 11px;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.card-stats .value {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.card-stats .border {
+  border-left: 1px solid rgb(172, 26, 87);
+  border-right: 1px solid rgb(172, 26, 87);
+}
+
+.card:hover {
+  transform: scale(1.2);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/*card2*/
+
+/*card2*/
+.card-image.card2 {
+  background: url("../img/imperialPalace.jpg");
+  background-size: cover;
+}
+.card-text.card2 .date {
+  color: rgb(255, 77, 7);
+}
+.card-stats.card2 .border {
+  border-left: 1px solid rgb(185, 67, 20);
+  border-right: 1px solid rgb(185, 67, 20);
+}
+.card-stats.card2 {
+  background: rgb(255, 77, 7);
+}
+/*card3*/
+.card-image.card3 {
+  background: url("../img/breamerCastleScotland.jpg");
+  background-size: cover;
+}
+.card-text.card3 .date {
+  color: rgb(0, 189, 63);
+}
+.card-stats.card3 .border {
+  border-left: 1px solid rgb(14, 122, 50);
+  border-right: 1px solid rgb(14, 122, 50);
+}
+.card-stats.card3 {
+  background: rgb(0, 189, 63);
+}
+
+.hero-section {
+  min-height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  padding: 80px 0px;
+}
+
+.hero-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-head {
+  padding-bottom: 15px;
+}
+
+.hero-text {
+  padding: 10px 20px 10px 0px;
+}
+
+.hero-text p {
+  padding: 20px 0px;
+}
