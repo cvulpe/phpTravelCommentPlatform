@@ -30,9 +30,17 @@
             </div>
         </section>
     </div>
-    <section class="comment">
-
+    <section class="comment-section">
+        <form class="form-comment" name="comment" method="POST" action="#">
+            <input type="hidden" name="uid" value="">
+            <input type="hidden" name="date" value="">
+            <textarea name="message" id="textarea" placeholder="Leave us a comment"></textarea><br>
+        </form>
+        <div>
+            <button class="comment-btn" type="submit" name="commentSubmit">Comment</button>
+        </div>
     </section>
+    </div>
 
 </main>
 <?php

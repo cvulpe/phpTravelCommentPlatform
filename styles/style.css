@@ -122,8 +122,9 @@ button {
 }
 
 #log {
-  width: 55px;
+  width: 60px;
 }
+
 button:hover {
   background: #03440c;
 }
@@ -366,12 +367,11 @@ button:hover {
 }
 
 .hero-section {
-  min-height: 90vh;
+  min-height: 70vh;
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: auto;
-  padding: 80px 0px;
 }
 
 .hero-description {
@@ -380,7 +380,7 @@ button:hover {
 }
 
 .hero-head {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .hero-text {
@@ -388,5 +388,28 @@ button:hover {
 }
 
 .hero-text p {
-  padding: 20px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+/*Comment section*/
+
+.comment-section {
+  min-height: 30vh;
+  margin: auto;
+  display: flex;
+  padding-left: 70px;
+}
+
+.form-comment {
+  padding-right: 10px;
+}
+
+.comment-btn {
+  width: 100px;
+}
+
+#textarea {
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
 }

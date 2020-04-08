@@ -37,7 +37,7 @@
                     echo'<form class="form-login" action="includes/login.inc.php" method="POST">
                     <input class="uid-wrp" type="text" name="mailuid" placeholder="Username/E-mail: " value="">
                     <input class="pwd-wrp" type="password" name="pwd" placeholder="Password:" value="">
-                    <button type="submit" name="login-submit" id="log>Login</button>
+                    <button type="submit" name="login-submit" id="log">Login</button>
                 </form>
                 <a href="index.php">Signup for an account</a>';
                 }
