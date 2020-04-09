@@ -1,6 +1,11 @@
 <?php
-  require "header.php";
+    require "header.php";
+    require "includes/comments.inc.php";
+    require "includes/dbh.inc.php";
+    date_default_timezone_set('Europe/Bucharest');
+     if(isset($_SESSION['userId'])){
 ?>
+
 <main>
     <div class="wrapper">
         <section class="hero-section">
@@ -31,18 +36,31 @@
         </section>
     </div>
     <section class="comment-section">
-        <form class="form-comment" name="comment" method="POST" action="#">
-            <input type="hidden" name="uid" value="">
-            <input type="hidden" name="date" value="">
+        <?php 
+       echo'
+        <form class="form-comment" name="comment" method="POST" action="'.setComments($conn).'">
+            <input type="hidden" name="uid" value="'.$_SESSION['userId'].'">
+            <input type="hidden" name="date" value="'.date('Y-m-d H:i:s').'">
+            <input type="hidden" name="articleId" value="1">
             <textarea name="message" id="textarea" placeholder="Leave us a comment"></textarea><br>
-        </form>
+        
         <div>
             <button class="comment-btn" type="submit" name="commentSubmit">Comment</button>
         </div>
+        </form>
+    ';
+    ?>
     </section>
     </div>
-
 </main>
 <?php
   require "footer.php";
+
+}else{
+    $_SESSION['message'] = "Please login in order to check the articles";
+    $_SESSION['msg_type'] = "login";
+    header("Location: landing.php?error=login");
+    exit();
+    }
+    getComments($conn);
 ?>
