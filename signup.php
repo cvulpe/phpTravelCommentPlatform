@@ -4,9 +4,6 @@
             <div class="form-head">
                 <h1>Sign UP</h1>
             </div>
-            <?php
-            
-            ?>
             <div class="form-wrapper">
                 <form class="signup-form" action="includes/signup.inc.php" method="POST">
                     <div class="reg-inp"><input class="signup-input" type="text" name="uid" placeholder="Username:"
@@ -31,7 +28,3 @@
         </section>
     </div>
 </main>
-
-<?php
-    require"footer.php";
-?>

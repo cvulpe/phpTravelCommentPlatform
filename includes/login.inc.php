@@ -36,7 +36,7 @@ if(isset($_POST['login-submit'])){
                 }
                 elseif($pwdCheck == true){
                     session_start();
-                    $_SESSION['userId'] = $row['id'];
+                    $_SESSION['uid'] = $row['uid'];
                     $_SESSION['userName'] = $row['username'];
                     $_SESSION['message'] = "You are succsesfully loged in! Welcome!";
                     $_SESSION['msg_type'] = "success";

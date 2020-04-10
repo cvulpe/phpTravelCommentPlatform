@@ -28,7 +28,7 @@
 
         <div>
             <?php
-                if(isset($_SESSION['userId'])){
+                if(isset($_SESSION['uid'])){
                     echo' <form class="form-login" action="includes/logout.inc.php" method="POST">
                     <button type="submit" name="logout-submit" id="log">Logout</button>
                 </form>';

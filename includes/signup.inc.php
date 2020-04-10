@@ -12,43 +12,43 @@ if(isset($_POST['signup-submit'])){
     if(empty($username) || empty($email) || empty($password) || empty($passwordRepeat)){
         $_SESSION['message'] = "Please fill in all the mandatory fields!";
         $_SESSION['msg_type'] = "error";
-        header("Location: ../signup.php?error=emptyfields");
+        header("Location: ../index.php?error=emptyfields");
         exit();
     }elseif(strlen($username) < 5){
         $_SESSION['message'] = "Your username must have at least 5 characters!";
         $_SESSION['msg_type'] = "error";
-        header("Location: ../signup.php?error=userinvalid");
+        header("Location: ../index.php?error=userinvalid");
         exit();
     }
     // Check for a valid email address and a valid username
     elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
         $_SESSION['message'] = "Invalid username and email address!";
         $_SESSION['msg_type'] = "error";
-        header("Location: ../signup.php?error=invalidemail&uid");
+        header("Location: ../index.php?error=invalidemail&uid");
         exit();
     }
     elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $_SESSION['message'] = "Invalid email address! Please fill in a valid email addrress! ";
         $_SESSION['msg_type'] = "error";
-        header("Location: ../signup.php?error=invalidemail");
+        header("Location: ../index.php?error=invalidemail");
         exit();
     }
     elseif(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
         $_SESSION['message'] = "Invalid username! Please fill in a valid username!";
         $_SESSION['msg_type'] = "error";
-        header("Location: ../signup.php?error=invalidusername");
+        header("Location: ../index.php?error=invalidusername");
         exit();
     }
     elseif(strlen($password) < 5) {
         $_SESSION['message'] = "Your password must have at least 5 characters";
         $_SESSION['msg_type'] = "error";
-        header("Location: ../signup.php?error=passwordshort");
+        header("Location: ../index.php?error=passwordshort");
         exit();
     }
     elseif($password !== $passwordRepeat){
         $_SESSION['message'] = "The passwords do not match! Please try again!";
         $_SESSION['msg_type'] = "error";
-        header("Location: ../signup.php?error=passwordcheck");
+        header("Location: ../index.php?error=passwordcheck");
         exit();
     }
     else{
@@ -57,7 +57,7 @@ if(isset($_POST['signup-submit'])){
         if(!mysqli_stmt_prepare($stmt, $sql)){
             $_SESSION['message'] = "SQL Error.Please contact the administrator for further assiatance!";
             $_SESSION['msg_type'] = "error";
-            header("Location: ../signup.php?error=sqlerror");
+            header("Location: ../index.php?error=sqlerror");
             exit();
         }
         else{
@@ -68,7 +68,7 @@ if(isset($_POST['signup-submit'])){
             if(resultCheck > 0){
                 $_SESSION['message'] = "Username already taken! Please create another username!";
                 $_SESSION['msg_type'] = "error";
-                header("Location: ../signup.php?error=usertaken");
+                header("Location: ../index.php?error=usertaken");
                 exit(); 
             }
             else{
@@ -77,7 +77,7 @@ if(isset($_POST['signup-submit'])){
                 $_SESSION['msg_type'] = "error";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
-                    header("Location: ../signup.php?error=sqlerror");
+                    header("Location: ../index.php?error=sqlerror");
                     exit();  
                 }
                 else{
@@ -86,7 +86,7 @@ if(isset($_POST['signup-submit'])){
                     mysqli_stmt_execute($stmt);
                     $_SESSION['message'] = "Account succsesfully created! You may login using the same details!";
                     $_SESSION['msg_type'] = "success";
-                    header("Location: ../signup.php?signup=success");
+                    header("Location: ../index.php?signup=success");
                     exit();
                 }
             }
@@ -97,6 +97,6 @@ if(isset($_POST['signup-submit'])){
 
 }
 else{
-    header("Location: ../signup.php");
+    header("Location: ../index.php");
     exit(); 
 }

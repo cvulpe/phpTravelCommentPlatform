@@ -3,7 +3,7 @@
     require "includes/comments.inc.php";
     require "includes/dbh.inc.php";
     date_default_timezone_set('Europe/Bucharest');
-     if(isset($_SESSION['userId'])){
+     if(isset($_SESSION['uid'])){
 ?>
 
 <main>
@@ -37,11 +37,12 @@
     </div>
     <section class="comment-section">
         <?php 
-       echo'
+        $articleId = $_POST['articleId'] = 1;
+        echo'
         <form class="form-comment" name="comment" method="POST" action="'.setComments($conn).'">
-            <input type="hidden" name="uid" value="'.$_SESSION['userId'].'">
+            <input type="hidden" name="uid" value="'.$_SESSION['uid'].'">
             <input type="hidden" name="date" value="'.date('Y-m-d H:i:s').'">
-            <input type="hidden" name="articleId" value="1">
+            <input type="hidden" name="articleId" value="'.$articleId.'">
             <textarea name="message" id="textarea" placeholder="Leave us a comment"></textarea><br>
         
         <div>

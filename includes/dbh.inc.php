@@ -3,7 +3,7 @@
 $server = "localhost";
 $user = "root";
 $password = "";
-$dbName = "loginsystemm2";
+$dbName = "atlas";
 
 $conn =mysqli_connect($server, $user, $password, $dbName);
 
