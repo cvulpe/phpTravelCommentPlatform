@@ -14,21 +14,22 @@ function setComments($conn){
 }
 
 function getComments($conn){
-    $articleId = $_POST['articleId'];
+    $articleId = $_POST['articleId']; 
+    // $uid = $_SESSION['uid'];
     $sql = "SELECT * FROM comments WHERE articleId='$articleId'";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
         $id = $row['uid'];
-        $sql2 = "SELECT * FROM users WHERE id='$id'";
+        $sql2 = "SELECT * FROM users WHERE uid='$id'";
         $result2 = $conn ->query($sql2);
         if($row2 = $result2-> fetch_assoc()){
             echo"<div class='comment-box'><p>";
-                echo $row2['uid']."<br>";
+                echo $row2['username']."<br>";
                 echo $row['date']."<br>";
                 echo nl2br($row['message']);
                 echo"</p>";
-                if(isset($_SESSION['id'])){
-                    if($_SESSION['id'] == $row2['id']){
+                if(isset($_SESSION['uid'])){
+                    if($_SESSION['uid'] == $row2['uid']){
                         echo"<form class='delete-form' method='POST' action='".deleteComments($conn)."'>
                             <input type='hidden' name='cid' value='".$row['cid']."'>
                             <button name='commentDelete' type='submit' >Delete</button>
