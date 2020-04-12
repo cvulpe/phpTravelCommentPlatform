@@ -35,11 +35,14 @@
 
     <section class="comment-section">
         <?php 
+        $articleId = $_POST['articleId'] = 3;
+        $articlePage = $_GET['page'] = "iPalace";
        echo'
         <form class="form-comment" name="comment" method="POST" action="'.setComments($conn).'">
             <input type="hidden" name="uid" value="'.$_SESSION['uid'].'">
             <input type="hidden" name="date" value="'.date('Y-m-d H:i:s').'">
             <input type="hidden" name="articleId" value="3">
+            <input type="hidden" name="page">
             <textarea name="message" id="textarea" placeholder="Leave us a comment"></textarea><br>
         
         <div>
@@ -47,19 +50,17 @@
         </div>
         </form>
     ';
-    ?>
-    </section>
-    </div>
-
-</main>
-<?php
-  require "footer.php";
-
-
 }else{
     $_SESSION['message'] = "Please login in order to check the articles";
     $_SESSION['msg_type'] = "login";
     header("Location: landing.php?error=login");
     exit();
     }
+    getComments($conn);
+?>
+    </section>
+    </div>
+</main>
+<?php
+    require "footer.php";
 ?>

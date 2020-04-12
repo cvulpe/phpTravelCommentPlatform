@@ -36,6 +36,8 @@
 
         <section class="comment-section">
             <?php 
+         $articleId = $_POST['articleId'] = 2;
+         $articlePage = "bcastle";
        echo'
         <form class="form-comment" name="comment" method="POST" action="'.setComments($conn).'">
             <input type="hidden" name="uid" value="'.$_SESSION['uid'].'">
@@ -48,18 +50,18 @@
         </div>
         </form>
     ';
-    ?>
-        </section>
-    </div>
-
-</main>
-<?php
-  require "footer.php";
-
+ 
 }else{
     $_SESSION['message'] = "Please login in order to check the articles";
     $_SESSION['msg_type'] = "login";
     header("Location: landing.php?error=login");
     exit();
     }
+    getComments($conn);
+?>
+        </section>
+    </div>
+</main>
+<?php
+    require "footer.php";
 ?>

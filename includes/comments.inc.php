@@ -15,7 +15,6 @@ function setComments($conn){
 
 function getComments($conn){
     $articleId = $_POST['articleId']; 
-    // $uid = $_SESSION['uid'];
     $sql = "SELECT * FROM comments WHERE articleId='$articleId'";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
@@ -52,18 +51,31 @@ function getComments($conn){
                     echo"<p class='comment-msg'>You need to login in to reply!</p>";
                 }
 
-               
             echo"</div>";
         }
         
     }
    
 }
-
-function deleteComments($conn){
-
+function editComments($conn){
+    if(isset($_POST['commentSubmit'])){
+        $cid = $_POST['cid'];
+        $uid = $_POST['uid'];
+        $date = $_POST['date'];
+        $message = $_POST['message'];
+                
+        $sql = "UPDATE comments SET message ='$message' WHERE cid='$cid'";
+        $result = $conn->query($sql);
+        header("Location: landing.php");
+    }
 }
 
-function editComments($conn){
-    
+function deleteComments($conn){
+    if(isset($_POST['commentDelete'])){
+        $cid = $_POST['cid'];
+        
+        $sql = "DELETE FROM comments WHERE cid='$cid'";
+        $result = $conn->query($sql);
+        header("Location: landing.php");
+    }
 }

@@ -341,8 +341,6 @@ button:hover {
 }
 
 /*card2*/
-
-/*card2*/
 .card-image.card2 {
   background: url("../img/imperialPalace.jpg");
   background-size: cover;
@@ -404,11 +402,13 @@ button:hover {
   min-height: 30vh;
   margin: auto;
   display: flex;
+  flex-direction: column;
   padding-left: 70px;
 }
 
 .form-comment {
   padding-right: 10px;
+  padding-bottom: 30px;
 }
 
 .comment-btn {
@@ -416,7 +416,68 @@ button:hover {
 }
 
 #textarea {
-  width: 400px;
+  width: 600px;
   height: 40px;
   border-radius: 5px;
+}
+
+.comment-box {
+  width: 600px;
+  padding: 5px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: solid 1px rgba(19, 28, 39, 0.8);
+  border-radius: 10px;
+  position: relative;
+}
+
+.comment-box p {
+  font-family: arial;
+  font-size: 14px;
+  line-height: 16px;
+  color: #282828;
+}
+
+.comment-msg {
+  float: right;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.edit-form {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.edit-form button {
+  width: 40px;
+  height: 20px;
+  color: #282828;
+  background-color: transparent;
+  opacity: 0.7;
+}
+
+.edit-form button:hover {
+  opacity: 1;
+}
+
+.delete-form {
+  position: absolute;
+  top: 0px;
+  right: 50px;
+}
+
+.delete-form button {
+  width: 40px;
+  height: 20px;
+  color: #282828;
+  background-color: transparent;
+  opacity: 0.7;
+}
+
+.delete-form button:hover {
+  opacity: 1;
 }

@@ -34,10 +34,11 @@
                 <img src="img/broadwayTowerUK.png" alt="">
             </div>
         </section>
-    </div>
-    <section class="comment-section">
-        <?php 
+
+        <section class="comment-section">
+            <?php 
         $articleId = $_POST['articleId'] = 1;
+        $articlePage = "btower";
         echo'
         <form class="form-comment" name="comment" method="POST" action="'.setComments($conn).'">
             <input type="hidden" name="uid" value="'.$_SESSION['uid'].'">
@@ -50,13 +51,6 @@
         </div>
         </form>
     ';
-    ?>
-    </section>
-    </div>
-</main>
-<?php
-  require "footer.php";
-
 }else{
     $_SESSION['message'] = "Please login in order to check the articles";
     $_SESSION['msg_type'] = "login";
@@ -64,4 +58,10 @@
     exit();
     }
     getComments($conn);
+?>
+        </section>
+    </div>
+</main>
+<?php
+    require "footer.php";
 ?>
