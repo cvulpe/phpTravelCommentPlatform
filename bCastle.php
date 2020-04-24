@@ -36,8 +36,8 @@
 
         <section class="comment-section">
             <?php 
-         $articleId = $_POST['articleId'] = 2;
-         $articlePage = "bcastle";
+         $articleId = $_SESSION['articleId'] = 2;
+         //$articlePage = "bcastle";
        echo'
         <form class="form-comment" name="comment" method="POST" action="'.setComments($conn).'">
             <input type="hidden" name="uid" value="'.$_SESSION['uid'].'">

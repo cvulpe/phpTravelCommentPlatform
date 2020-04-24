@@ -1,20 +1,23 @@
 <?php
 
+// Set a comment
+
 function setComments($conn){
     if(isset($_POST['commentSubmit'])){
         $uid = $_SESSION['uid'];
         $date = $_POST['date'];
-        $articleId = $_POST['articleId'];
+        $articleId = $_SESSION['articleId'];
         $message = $_POST['message'];
        
-
         $sql = "INSERT INTO comments (uid, date, message, articleId) VALUES ('$uid', '$date', '$message', '$articleId')";
         $result = $conn->query($sql);
     }
 }
 
+// Retrive comments
+
 function getComments($conn){
-    $articleId = $_POST['articleId']; 
+    $articleId = $_SESSION['articleId']; 
     $sql = "SELECT * FROM comments WHERE articleId='$articleId'";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
@@ -57,18 +60,34 @@ function getComments($conn){
     }
    
 }
+
+// Edit a comment
+
 function editComments($conn){
     if(isset($_POST['commentSubmit'])){
         $cid = $_POST['cid'];
         $uid = $_POST['uid'];
         $date = $_POST['date'];
         $message = $_POST['message'];
+        $articleId = $_SESSION['articleId'];     
                 
         $sql = "UPDATE comments SET message ='$message' WHERE cid='$cid'";
         $result = $conn->query($sql);
-        header("Location: landing.php");
+        if($articleId === 1){
+            header("Location: btower.php");
+        }elseif($articleId === 2){
+            header("Location: bCastle.php");
+        }elseif($articleId === 3){
+            header("Location: iPalace.php");
+        }
+            else{
+            header("Location: landing.php");
+        }
+        
     }
 }
+
+//Delete a comment
 
 function deleteComments($conn){
     if(isset($_POST['commentDelete'])){

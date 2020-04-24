@@ -19,7 +19,7 @@
 <body>
     <?php
     
-    $articlePage = $_SESSION['articlePage'];
+    //$articlePage = $_SESSION['articlePage'];
     $cid = $_POST['cid'];
     $uid = $_POST['uid'];
     $date = $_POST['date'];
